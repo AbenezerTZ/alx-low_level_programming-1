@@ -1,25 +1,15 @@
-       extern	printf		; the C function, to be called
+	SECTION .data
+msg:	db "Hello, Holberton", 0
+fmt:	db "%s", 10, 0
 
-        SECTION .data		; Data section, initialized variables
+	SECTION .text
+	extern printf
+	global main
+main:
+	mov esi, msg
+	mov edi, fmt
+	mov eax, 0
+	call printf
 
-	a:	dq	5	; long int a=5;
-fmt:    db "Hello, Holberton", 10; The printf format, "\n",'0'
-
-        SECTION .text   ; Code section.
-
-        global main		; the standard gcc entry point
-main:				    ; the program label for the entry point
-        push    rbp		; set up stack frame
-
-	mov	rax,[a]		    ; put "a" from store into register
-	add	rax,2		    ; a+2  add constant 2
-	mov	rdi,fmt		    ; format for printf
-	mov	rsi,[a]         ; first parameter for printf
-	mov	rdx,rax         ; second parameter for printf
-	mov	rax,0		    ; no xmm registers
-    call    printf		; Call C function
-
-	pop	rbp		; restore stack
-
-	mov	rax,0		; normal, no error, return value
-	ret			; return
+	mov eax, 0
+	ret

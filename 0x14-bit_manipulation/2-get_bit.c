@@ -1,34 +1,20 @@
 #include "main.h"
 
 /**
- * get_bit - gets the bit of @n at @index
- * @n: the number
- * @index: the index to print the bit
+ * get_bit - returns the value of a bit at an index in a decimal number
+ * @n: number to search
+ * @index: index of the bit
  *
- * Return:  tha value of the bit at @index or -1 if an error occurs
+ * Return: value of the bit
  */
-
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned int count = 0;
-	unsigned long int copy = n;
-	int bit;
+    int bit_val;
 
-	while (n)
-	{
-		count++;
-		n >>= 1;
-	}
-	n = copy;
+    if (index > 63)
+        return (-1);
 
-	/*
-	 * unsigned long *n uses 4 * 8 bits in memory. If index is out of bound
-	 * of that memory, don't modify *n and return -1
-	 */
-	if (index > 24)
-		return (-1);
+    bit_val = (n >> index) & 1;
 
-	bit = (int) (n >> index) & 1;
-
-	return (bit);
+    return (bit_val);
 }

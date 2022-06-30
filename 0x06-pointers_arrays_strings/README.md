@@ -1,1 +1,1 @@
-More on pointers, arrays and strings.
+My Ox06 Pointers , Arrays and String task

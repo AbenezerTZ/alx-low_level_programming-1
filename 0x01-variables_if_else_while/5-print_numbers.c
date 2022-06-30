@@ -1,15 +1,21 @@
-#include <stdlib.h>
-#include <time.h>
 #include <stdio.h>
-
-/* betty style doc for function main goes there */
 /**
  * main - Entry point
  *
- * Return: Always 0 (Success)
+ * Return: Always 0 (success/correct)
  */
 int main(void)
+
 {
-	printf("0123456789\n");
-	return (0);
+int i;
+
+for (i = 0 ; i < 10; i++)
+{
+printf("%i", i);
+}
+
+printf("\n");
+
+return (0);
+
 }

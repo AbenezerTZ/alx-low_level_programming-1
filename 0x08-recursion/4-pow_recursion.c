@@ -1,23 +1,21 @@
 #include "main.h"
-
 /**
- * _pow_recursion - raises a number to the specified exponent
- * @x: the number to be raised to the exponent @y
- * @y: the exponent
- *
- * Return: -1 if y < 0
- *			x ^ y otherwise
+ *_pow_recursion - returns the value of x raised to the power of y
+ *@x: integer
+ *@y: integer
+ *Return: pow recursion
  */
+
 int _pow_recursion(int x, int y)
 {
-	if (y < 0)
-		return (-1);
+if (y < 0) /*Base condition*/
+{
+return (-1);
+}
 
-	if (y == 1)
-		return (x);
+else if (y != 0)
+return (x * _pow_recursion(x, y - 1)); /* Recursive call*/
 
-	if (y == 0)
-		return (1);
-
-	return (x * _pow_recursion(x, y - 1));
+else
+return (1);
 }

@@ -1,23 +1,23 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
-  * main - multiplies the integers passed in runtime
-  * @argc: number of arguments passed
-  * @argv: arrary of arguments passed
-  *
-  * Return: Always 0
-  */
-
+ * main - prints the multiplication of two integers
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: 0 if true, 1 if false
+ */
 int main(int argc, char *argv[])
 {
-	if (argc < 3)
-	{
-		printf("Error\n");
-		return (1);
-	}
-
-	printf("%d\n",  atoi(argv[1]) * atoi(argv[2]));
-	return (0);
+int a, b;
+if (argc == 3)
+{
+a = atoi(argv[1]);
+b = atoi(argv[2]);
+printf("%d\n", a *b);
+return (0);
+}
+printf("Error\n");
+return (1);
 }

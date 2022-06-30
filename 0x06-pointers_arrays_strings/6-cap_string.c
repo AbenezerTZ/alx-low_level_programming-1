@@ -1,42 +1,31 @@
 #include "main.h"
-
 /**
-  * cap_string - Capitalizes every letter coming after a space, tabulation,
-  * new line, ,, ;, ., !, ?, ", (, ), {, and } in @s
-  * @s: the string to be capitalized
-  *
-  * Return: @s, the string, capitalized
-  */
+ * cap_string - capitalizes all words of a string
+ * @s: input string.
+ * Return: the pointer to dest.
+ */
+
 
 char *cap_string(char *s)
 {
-	/*
-	 * @c: the characters that make the next letter eligible to be capitalized
-	 */
-	char c[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '\"', '(', ')',
-		  '{', '}'};
-	int len = 0;
-	int i;
-	int k;
+int count = 0, i;
+int separators[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
 
-	while (s[len] != '\0')
-	{
-		len++;
-	}
-
-	if (s[0] >= 97 && s[0] <= 122)
-		s[0] =  (char) (s[0] - 32);
-
-	for (i = 0; i < len; i++)
-	{
-		for (k = 0; k < 13; k++)
-		{
-			if (s[i] == c[k] && s[i + 1] >= 97 && s[i + 1] <= 122)
-			{
-				s[i + 1] =  (char) (s[i + 1] - 32);
-			}
-		}
-	}
-
-	return (s);
+if (*(s + count) >= 97 && *(s + count) <= 122)
+*(s + count) = *(s + count) - 32;
+count++;
+while (*(s + count) != '\0')
+{
+for (i = 0; i < 13; i++)
+{
+if (*(s + count) == separators[i])
+{
+if ((*(s + (count + 1)) >= 97) && (*(s + (count + 1)) <= 122))
+*(s + (count + 1)) = *(s + (count + 1)) - 32;
+break;
+}
+}
+count++;
+}
+return (s);
 }

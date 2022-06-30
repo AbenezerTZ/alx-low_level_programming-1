@@ -1,2 +1,2 @@
-void printname(char *str);
-int subtract_largest_coin(int cents);
+int _putchar(char c);
+int check_num(char *str);

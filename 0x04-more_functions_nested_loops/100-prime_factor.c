@@ -1,41 +1,24 @@
 #include <stdio.h>
 
 /**
- * print_largest_prime - prints the largest prime of @n
- * @n: the number whose largest prime is to be looked for
+ * main - Entry point.
  *
- * Return: array of primes
+ * Return: Always 0.
  */
 
-void print_largest_prime(long n)
-{
-	long maxFact, div = 2;
+int main(void)
 
-	while (n != 0)
-	{
-		if (n % div != 0)
-			div = div + 1;
-		else
-		{
-			maxFact = n;
-			n = n / div;
-			if (n == 1)
-			{
-				printf("%ld\n", maxFact);
-				break;
-			}
-		}
-	}
+{
+long n, i;
+
+n = 612852475143;
+for (i = 2; i < n; i++)
+{
+while (n % i == 0)
+n = n / i;
 }
 
-/**
- * main - prints the largest prime factor of number 612852475143
- *
- * Return: Always 0
-*/
+printf("%lu\n", n);
 
-int main(void)
-{
-	print_largest_prime(612852475143);
-	return (0);
+return (0);
 }

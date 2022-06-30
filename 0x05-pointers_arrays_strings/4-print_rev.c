@@ -1,27 +1,25 @@
 #include "main.h"
-
 /**
- * print_rev - prints a string in reverse followed by a new line
- * @s: the string to be reversed
+ * print_rev - prints a string in reverse order
+ *@s: A pointer to an int that will be changed
  *
- * Return: void
+ *Return: void which means our answer is correct
  */
 
 void print_rev(char *s)
 {
-	int n = 0; /* The size of the string */
+int i;
 
-	/* Calculate the size of the string */
-	while (s[n] != 0)
-	{
-		n++;
-	}
+i = 0;
+while (s[i] != '\0')
+{
+i++;
+}
 
-	while (n  >= 0)
-	{
-		if (s[n] != 0)
-		_putchar(s[n]);
-		n--;
-	}
-	_putchar(10);
+for (i = i - 1 ; i >= 0; i--)
+{
+_putchar (s[i]);
+}
+
+_putchar ('\n');
 }

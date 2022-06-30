@@ -1,1 +1,1 @@
-This folder contains very basic C programs.
+My readme file for 0x00-hello_world

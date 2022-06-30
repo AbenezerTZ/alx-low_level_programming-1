@@ -1,55 +1,51 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 /**
- * subtract_largest_coin - find min number of coins needed to make change
- * @cents: the amount of money to make change for in cents
- *
- * Return: the minimum number of coins needed to make change
+ * main - function
+ *@argc: length of argv
+ *@argv: number of argument
+ *Return: Always 0
  */
-int subtract_largest_coin(int cents)
-{
-	if (cents - 25 > -1)
-		return (cents - 25);
 
-	if (cents - 10 > -1)
-		return (cents - 10);
-
-	if (cents - 5 > -1)
-		return (cents - 5);
-
-	if (cents - 2 > -1)
-		return (cents - 2);
-
-	if (cents - 1 > -1)
-		return (cents - 1);
-
-	return (0);
-}
-
-/**
- * main - print the minimum number of coins needed to make change
- * @argc: size of the argument vector
- * @argv: program name and arguments
- *
- * Return: 1 if given something other than a single argument,
- * otherwise 0
- */
 int main(int argc, char *argv[])
 {
-	int cents, coins;
+/*Declaring variables*/
+int position, total, change, aux;
+int coins[] = {25, 10, 5, 2, 1}; /*Array int*/
 
-	if (argc != 2)
-	{
-		puts("Error");
-		return (1);
-	}
+position = total = change = aux = 0;
 
-	for (cents = atoi(argv[1]), coins = 0; cents > 0; ++coins)
-		cents = subtract_largest_coin(cents);
+if (argc != 2)
+{
+printf("Error\n");
+return (1);
+}
 
-	printf("%d\n", coins);
+total = atoi(argv[1]); /*Covert str to int*/
 
-	return (0);
+if (total <= 0)
+{
+printf("0\n");
+return (0);
+}
+
+/*Declaring While*/
+
+while (coins[position] != '\0')
+
+{
+if (total >= coins[position])
+{
+aux = (total / coins[position]);
+change += aux;
+total -= coins[position] * aux;
+}
+
+position++;
+
+}
+
+printf("%d\n", change);
+return (0);
 }

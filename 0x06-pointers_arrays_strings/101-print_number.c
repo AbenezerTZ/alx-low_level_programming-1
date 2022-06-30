@@ -1,50 +1,35 @@
 #include "main.h"
-/**
-  * print_number - prints the passed integer using _putchar
-  * @n: number to be printed
-  *
-  * Return: Always void
-  */
 
+/**
+ * print_number - prints an integer.
+ * @n: input integer.
+ * Return: no return.
+ */
 void print_number(int n)
 {
-	int i = 1; /* Holds how many digits n has */
+unsigned int m, d, count;
 
-	/**
-	 * if n is zero, just print zero
-	 */
-	if (n == 0)
-	{
-		_putchar(48);
-		return;
-	}
+if (n < 0)
+{
+_putchar(45);
+m = n * -1;
+}
+else
+{
+m = n;
+}
 
-	/**
-	 * If n is negative, put the '-' sign and replace n by its
-	 * absolute value
-	 */
-	if (n < 0)
-	{
-		n /= -1;
-		_putchar(45);
-		if (n == -2147483648)
-		{
-			n = 147483648;
-			_putchar(50);
-		}
-	}
+d = m;
+count = 1;
 
+while (d > 9)
+{
+d /= 10;
+count *= 10;
+}
 
-	while (n / i >= 10)
-	{
-		i *= 10;
-	}
-
-	while (i != 0)
-	{
-		_putchar(((n / i) % 10) + 48);
-		i /= 10;
-
-	}
-
+for (; count >= 1; count /= 10)
+{
+_putchar(((m / count) % 10) + 48);
+}
 }

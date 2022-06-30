@@ -1,20 +1,20 @@
 #include "main.h"
 
 /**
- * _strlen - counts the length of a string
- * @s: the string whose length is to be calculated
+ *_strlen -length of a string
+ *@s: A pointer to an int that will be changed/updated
  *
- * Return: n, the length of the string
+ *Return: void that means our answer is correct
  */
 
 int _strlen(char *s)
 {
-	int n = 0;
+int u;
 
-	while (s[n] != 0)
-	{
-		n++;
-	}
-
-	return (n++);
+u = 0;
+while (s[u] != '\0')
+{
+u++;
+}
+return (u);
 }
